@@ -64,7 +64,7 @@ public:
 
     Node* getNode(int idx){
         Node *curNode = this->head;
-        for (int i = 0; i < idx; i++) {
+        for (int i = 0; i <= idx; i++) {
             curNode = curNode->next;
         }
         return curNode;
