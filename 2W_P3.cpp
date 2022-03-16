@@ -83,9 +83,8 @@ public:
         if (index >= this->size) {
             return -1;
         }
-
-        Node *deleteNode = this->head;
-        Node *prevNode = getNode(index);
+        Node *prevNode = getNode(index-1);
+        Node *deleteNode = prevNode->next;
         prevNode->next = deleteNode->next;
         if (deleteNode == this->tail) {
             this->tail = prevNode;
