@@ -28,6 +28,7 @@ private:
     int size;
 
 public:
+    //using dummy head
     LinkedList() {
         this->head = new Node();
         this->tail = head;
