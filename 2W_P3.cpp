@@ -7,7 +7,7 @@ private:
     int value;
     Node *next;
 
-public:
+public://
     Node() {
         this->value = 0;
         this->next = nullptr;
