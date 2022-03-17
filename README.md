@@ -1,1 +1,3 @@
 # ESTJ-Taesung
+
+A$AP
