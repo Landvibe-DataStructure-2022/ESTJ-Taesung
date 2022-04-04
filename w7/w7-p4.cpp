@@ -20,7 +20,7 @@ public:
         child->parent=this;
     }
     void appendChildAtFront(Node* child){
-        //push front 더 좋은 방법이 있겠지만 귀찮아서 안함 - O(1) time 이 아닌 O(N)에 수행되고있다 -> 링리로 push front 하면됨
+        //push front 더 좋은 방법이 있겠지만 귀찮아서 안함 - O(1) time 이 아닌 O(N)에 수행되고있다 -> 링리로 push front 하면 O(1) 에 가능
         child_list.push_back(nullptr);
         for (int i = child_list.size()-1; i >=1; --i) {
             child_list[i] = child_list[i - 1];
