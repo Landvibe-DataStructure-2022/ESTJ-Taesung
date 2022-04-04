@@ -83,16 +83,17 @@ int main() {
         Node* curPtr=t.root;
         t.root->elem = value[0];
         int curDepth = depth[0];
+        //value, depth 순서대로 읽으면서 깊이의 변화에 따라 처리해주면됨
         for (int i = 1; i < m; ++i) {
             Node *child = new Node(value[i]);
-            if (curDepth < depth[i]) {
+            if (curDepth < depth[i]) {//무조건 1차이
                 curPtr->appendChild(child);
                 curPtr=child;
                 curDepth++;
-            } else if (curDepth == depth[i]) {
+            } else if (curDepth == depth[i]) {//형제노드 추가
                 curPtr->parent->appendChild(child);
                 curPtr=child;
-            }else{
+            }else{//그려보면 value[i] 자리는 depth[i]-1까지 올라간다음에 그 노드의 자식으로 추가해주면됨
                 while (curDepth >= depth[i]) {
                     curDepth--;
                     curPtr = curPtr->parent;
