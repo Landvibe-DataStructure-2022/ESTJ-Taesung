@@ -69,6 +69,8 @@ const int MAXV=100001;
 int parNum[MAXN];
 int value[MAXN];
 Node* nodeList[MAXV];
+//노드에 써있는 값이 유일하다 -> 값은 최대 10만이다 -> index를 값으로 하고 index가 값인 노드의 주소를 저장한다
+//값으로 노드를 찾는 수행시간을(O(N) time에서) O(1) time 으로 줄일수있다.
 int main() {
     int T;
     cin >> T;
@@ -84,8 +86,16 @@ int main() {
         //value 가 최대 10만이라 value 로 index 접근해서 처리함
         for (int i = 0; i <m ; ++i) {
             if(value[i]!=1){
-                Node *child = new Node(value[i]);
-                nodeList[value[i]]=child;
+                
+                Node *child ;
+                //nodeList 의 원소(노드 주소) 는 값 하나당 한번씩만 초기화 되야한다.
+                if(nodeList[value[i]]==nullptr){
+                    child=new Node(value[i]);
+                    nodeList[value[i]]=child;
+                }else{
+                    child=nodeList[value[i]];
+                }
+                //부모도 마찬가지
                 if (nodeList[parNum[i]] == nullptr) {
                     nodeList[parNum[i]] = new Node(parNum[i]);
                     nodeList[parNum[i]]->appendChild(child);
